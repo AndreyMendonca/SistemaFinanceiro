@@ -38,4 +38,9 @@ public class ContasPagarController {
     public void delete(@PathVariable Long id){
         service.delete(id);
     }
+
+    @PatchMapping("/{id}")
+    public ContasPagar pagamentoConta(@PathVariable Long id){
+        return service.pagamentoConta(id);
+    }
 }

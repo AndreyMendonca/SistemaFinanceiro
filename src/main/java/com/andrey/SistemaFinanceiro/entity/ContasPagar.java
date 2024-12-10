@@ -29,6 +29,9 @@ public class ContasPagar {
         this.dataDeVencimento = dataDeVencimento;
         this.status = status;
     }
+    public void pagamentoConta(){
+        this.setStatus(StatusEnum.PAGA);
+    }
 
     public Long getId() {
         return id;

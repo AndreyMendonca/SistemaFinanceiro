@@ -28,6 +28,17 @@ public class ContasPagarService {
     }
 
     public void delete(Long id){
+        repository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("ContasPagar não existe"));
         repository.deleteById(id);
+    }
+
+    public ContasPagar pagamentoConta(Long id){
+        ContasPagar contaPagar = repository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("ContaPagar não existe"));
+
+        contaPagar.pagamentoConta();
+
+        return repository.save(contaPagar);
     }
 }

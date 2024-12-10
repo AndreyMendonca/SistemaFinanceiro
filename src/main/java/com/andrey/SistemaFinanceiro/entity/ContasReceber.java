@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_contas_pagar")
+@Table(name = "tb_contas_receber")
 public class ContasReceber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,10 @@ public class ContasReceber {
         this.valor = valor;
         this.dataDeVencimento = dataDeVencimento;
         this.status = statusEnum;
+    }
+
+    public void pagamentoConta(){
+        this.setStatus(StatusEnum.PAGA);
     }
 
     public Long getId() {
