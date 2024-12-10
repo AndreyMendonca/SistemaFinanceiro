@@ -2,6 +2,7 @@ package com.andrey.SistemaFinanceiro.service;
 
 import com.andrey.SistemaFinanceiro.controller.dto.CriarCategoriaDTO;
 import com.andrey.SistemaFinanceiro.entity.Categoria;
+import com.andrey.SistemaFinanceiro.exception.ResourceNotFoundException;
 import com.andrey.SistemaFinanceiro.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class CategoriaService {
 
     public Categoria findById(Long id){
         return repository.findById(id)
-                .orElseThrow(()-> new RuntimeException());
+                .orElseThrow(()-> new ResourceNotFoundException("Categoria não existe"));
     }
 
     public List<Categoria> findAll(){

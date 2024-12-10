@@ -3,6 +3,7 @@ package com.andrey.SistemaFinanceiro.controller;
 import com.andrey.SistemaFinanceiro.controller.dto.CriarCategoriaDTO;
 import com.andrey.SistemaFinanceiro.entity.Categoria;
 import com.andrey.SistemaFinanceiro.service.CategoriaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class CategoriaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Categoria save(@RequestBody CriarCategoriaDTO dto){
+    public Categoria save(@RequestBody @Valid CriarCategoriaDTO dto){
         return service.save(dto);
     }
 
