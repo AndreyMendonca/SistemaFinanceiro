@@ -21,6 +21,10 @@ public class ContasPagar {
     @Enumerated(EnumType.STRING)
     private StatusEnum status;
 
+    @ManyToOne()
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     public ContasPagar(){}
 
     public ContasPagar(String descricao, BigDecimal valor, LocalDate dataDeVencimento, StatusEnum status) {
@@ -71,6 +75,14 @@ public class ContasPagar {
 
     public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     @Override

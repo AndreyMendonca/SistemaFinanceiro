@@ -9,7 +9,8 @@ import java.time.LocalDate;
 public record CriarContasReceberDTO(String descricao,
                                     BigDecimal valor,
                                     LocalDate dataDeVencimento,
-                                    String status) {
+                                    String status,
+                                    Long categoria) {
     public ContasReceber toContasReceber(){
         return new ContasReceber(descricao,valor,dataDeVencimento, StatusEnum.valueOf(status));
     }

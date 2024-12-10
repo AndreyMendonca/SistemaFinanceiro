@@ -9,7 +9,8 @@ import java.time.LocalDate;
 public record CriarContasPagarDTO(String descricao,
                                   BigDecimal valor,
                                   LocalDate dataDeVencimento,
-                                  String status) {
+                                  String status,
+                                  Long categoria) {
     public ContasPagar toContasPagar(){
         return new ContasPagar(descricao,valor,dataDeVencimento, StatusEnum.valueOf(status));
     }

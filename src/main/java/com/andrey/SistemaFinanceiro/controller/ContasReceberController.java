@@ -1,7 +1,11 @@
 package com.andrey.SistemaFinanceiro.controller;
 
 import com.andrey.SistemaFinanceiro.controller.dto.CriarContasReceberDTO;
+import com.andrey.SistemaFinanceiro.entity.Categoria;
 import com.andrey.SistemaFinanceiro.entity.ContasReceber;
+import com.andrey.SistemaFinanceiro.exception.ResourceNotFoundException;
+import com.andrey.SistemaFinanceiro.exception.TipoCategoriaInvalidoException;
+import com.andrey.SistemaFinanceiro.repository.CategoriaRepository;
 import com.andrey.SistemaFinanceiro.service.ContasReceberService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

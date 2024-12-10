@@ -21,6 +21,10 @@ public class ContasReceber {
     @Enumerated(EnumType.STRING)
     private StatusEnum status;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     public ContasReceber(){}
 
     public ContasReceber(String descricao, BigDecimal valor, LocalDate dataDeVencimento, StatusEnum statusEnum) {
@@ -72,6 +76,14 @@ public class ContasReceber {
 
     public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     @Override
